@@ -54,6 +54,8 @@
 
   header h1 {
     margin: 0;
+    font-size: 3.2rem;  /* крупнее */
+    font-weight: 800;   /* жирнее */
     font-size: 2.6rem;
     font-weight: 700;
   }
@@ -107,18 +109,101 @@
     background: #e8f5e9;
     padding: 0.1rem 0.3rem;
     border-radius: 4px;
+
+  header p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+    margin-top: 0.7rem;
+  }
+
+  .buttons {
+    margin-top: 1.8rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(6px);
+  }
+
+  .btn:hover {
+    border-color: #fff;
+    transform: scale(1.06);
+  }
+
+  .btn.pdf {
+    background: rgba(255,255,255,0.25);
+  }
+
+  .btn.loading {
+    cursor: wait;
+    opacity: 0.8;
+    position: relative;
+  }
+
+  .btn.loading::after {
+    content: "⏳";
+    position: absolute;
+    right: -1.5rem;
+    animation: spin 1.4s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* === Стиль секции (если нужна) === */
+  section {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+  }
+
+  h2 {
+    color: var(--primary-dark);
+    margin-top: 0;
+    border-bottom: 2px solid var(--primary-light);
+    display: inline-block;
+    padding-bottom: 4px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--primary-light);
+    color: #004d25;
   }
 </style>
 </head>
+
 <body>
 
 <header>
   <div id="particles-js"></div>
   <h1>Resolving Ambiguity in Embodied Instructions<br>via Semantic Valency Conflict</h1>
   <p><em>Anonymous Authors</em> · 2025</p>
-  <div style="margin-top: 1rem;">
-    <a href="#" style="color:#fff; font-weight:600; text-decoration:underline;">PDF (Full Paper)</a> |
-    <a href="#" style="color:#fff; font-weight:600; text-decoration:underline;">arXiv (coming soon)</a>
+
+  <div class="buttons">
+    <!-- PDF открывает файл в новой вкладке -->
+    <a href="paper.pdf" target="_blank" class="btn pdf">📄 PDF (Full Paper)</a>
+
+    <!-- arXiv — пока заглушка -->
+    <a href="javascript:void(0)" class="btn loading">🧠 arXiv (coming soon)</a>
   </div>
 </header>
 
