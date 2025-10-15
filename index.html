@@ -23,15 +23,16 @@
     background: var(--background);
     color: var(--text);
     line-height: 1.6;
+    scroll-behavior: smooth;
   }
 
-  /* === HEADER С ГРАДИЕНТОМ И ЧАСТИЦАМИ === */
+  /* === HEADER === */
   header {
     position: relative;
     overflow: hidden;
     color: #fff;
     text-align: center;
-    padding: 6rem 1rem 5rem;
+    padding: 8rem 1rem 6rem;
     background: linear-gradient(to bottom right, rgb(72, 71, 97), rgb(69, 159, 114));
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   }
@@ -54,18 +55,64 @@
 
   header h1 {
     margin: 0;
-    font-size: 3.2rem;  /* крупнее */
-    font-weight: 800;   /* жирнее */
-    font-size: 2.6rem;
-    font-weight: 700;
+    font-size: 3.6rem;
+    font-weight: 800;
+    line-height: 1.2;
   }
 
-  header p {
+  .authors {
+    margin-top: 1.2rem;
+    font-size: 1.15rem;
+    opacity: 0.95;
+  }
+
+  .affiliations {
+    font-size: 0.95rem;
+    opacity: 0.85;
+  }
+
+  .buttons {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.9rem 1.8rem;
     font-size: 1.1rem;
-    opacity: 0.9;
-    margin-top: 0.5rem;
+    font-weight: 600;
+    color: var(--text);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    background: #fff;
   }
 
+  .btn:hover {
+    border-color: var(--primary);
+    transform: scale(1.08);
+    box-shadow: 0 0 12px rgba(102,187,106,0.3);
+  }
+
+  .scroll-down {
+    margin-top: 3rem;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: inline-block;
+  }
+
+  .scroll-down:hover {
+    transform: translateY(5px);
+    opacity: 0.8;
+  }
+
+  /* === SECTIONS === */
   section {
     max-width: 900px;
     margin: 3rem auto;
@@ -88,15 +135,6 @@
     text-align: justify;
   }
 
-  a {
-    color: var(--primary-dark);
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
   footer {
     text-align: center;
     padding: 2rem;
@@ -105,88 +143,13 @@
     font-size: 0.95rem;
   }
 
-  code {
-    background: #e8f5e9;
-    padding: 0.1rem 0.3rem;
-    border-radius: 4px;
-
-  header p {
-    font-size: 1.15rem;
-    opacity: 0.9;
-    margin-top: 0.7rem;
-  }
-
-  .buttons {
-    margin-top: 1.8rem;
-    display: flex;
-    justify-content: center;
-    gap: 1.2rem;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 0.8rem 1.6rem;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: #fff;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(6px);
-  }
-
-  .btn:hover {
-    border-color: #fff;
-    transform: scale(1.06);
-  }
-
-  .btn.pdf {
-    background: rgba(255,255,255,0.25);
-  }
-
-  .btn.loading {
-    cursor: wait;
-    opacity: 0.8;
-    position: relative;
-  }
-
-  .btn.loading::after {
-    content: "⏳";
-    position: absolute;
-    right: -1.5rem;
-    animation: spin 1.4s linear infinite;
-  }
-
-  @keyframes spin {
-    0% { transform: rotate(0); }
-    100% { transform: rotate(360deg); }
-  }
-
-  /* === Стиль секции (если нужна) === */
-  section {
-    max-width: 900px;
-    margin: 3rem auto;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.07);
-  }
-
-  h2 {
+  a {
     color: var(--primary-dark);
-    margin-top: 0;
-    border-bottom: 2px solid var(--primary-light);
-    display: inline-block;
-    padding-bottom: 4px;
+    text-decoration: none;
   }
 
-  footer {
-    text-align: center;
-    padding: 2rem;
-    background: var(--primary-light);
-    color: #004d25;
+  a:hover {
+    text-decoration: underline;
   }
 </style>
 </head>
@@ -196,15 +159,19 @@
 <header>
   <div id="particles-js"></div>
   <h1>Resolving Ambiguity in Embodied Instructions<br>via Semantic Valency Conflict</h1>
-  <p><em>Anonymous Authors</em> · 2025</p>
+  <p class="authors">
+    Daria Gitalova<sup>1</sup>, Alexey K. Kovalev<sup>1,2</sup>, Aleksandr I. Panov<sup>1,2</sup>
+  </p>
+  <p class="affiliations">
+    <sup>1</sup>MIPT, Moscow, Russia &nbsp;&nbsp; <sup>2</sup>AIRI, Moscow, Russia
+  </p>
 
   <div class="buttons">
-    <!-- PDF открывает файл в новой вкладке -->
-    <a href="paper.pdf" target="_blank" class="btn pdf">📄 PDF (Full Paper)</a>
-
-    <!-- arXiv — пока заглушка -->
-    <a href="javascript:void(0)" class="btn loading">🧠 arXiv (coming soon)</a>
+    <a href="paper.pdf" target="_blank" class="btn">Paper PDF</a>
+    <a href="https://arxiv.org" target="_blank" class="btn">arXiv</a>
   </div>
+
+  <div class="scroll-down" onclick="scrollToNextSection()">⬇</div>
 </header>
 
 <section id="abstract">
@@ -215,65 +182,17 @@
     To address this, we propose <strong>Semantic Valency Conflict (SVC)</strong> — a cognitively inspired, logit-free method for detecting ambiguity in robot-directed instructions. 
     SVC identifies divergences in role assignments across alternative interpretations of a predicate using large language models to infer context-sensitive semantic frames.
   </p>
-  <p>
-    The method is model-agnostic and compatible with both open- and closed-source LLMs. 
-    It produces interpretable outputs that highlight which parts of the instruction are ambiguous and what predicate–argument conflicts cause them. 
-    Evaluated on <em>AmbiK</em> and <em>IntroPlan Mobile Manipulation</em> datasets, SVC outperforms existing baselines in detecting fine-grained ambiguities in natural language robot instructions.
-  </p>
 </section>
 
 <section id="method">
   <h2>Method</h2>
   <p>
-    We define <strong>Semantic Valency Conflict</strong> as a condition where multiple interpretations of a lexeme activate incompatible semantic valency profiles in a given environment. 
-    Each predicate triggers one or more cognitive frames, each with its own set of expected semantic roles (<em>valency profile</em>). 
-    Ambiguity occurs when these profiles cannot be grounded to overlapping entities in context.
-  </p>
-  <p>
-    The SVC architecture mirrors cognitive mechanisms of frame activation and conflict resolution, consisting of four stages:
-  </p>
-  <ul>
-    <li><strong>Predicate Identification</strong> — Extracts lexical units that serve as predicates.</li>
-    <li><strong>Frame Induction</strong> — Uses LLMs to dynamically infer possible semantic frames.</li>
-    <li><strong>Role Alignment</strong> — Aligns predicted roles and actants with contextual entities.</li>
-    <li><strong>Conflict Evaluation</strong> — Detects incompatible valency profiles indicating ambiguity.</li>
-  </ul>
-  <p>
-    Unlike heuristic or logit-based methods, SVC operates without access to logits or static knowledge bases, making it both interpretable and adaptable.
-  </p>
-</section>
-
-<section id="results">
-  <h2>Results</h2>
-  <p>
-    SVC was evaluated on two benchmark datasets — <em>AmbiK</em> and <em>IntroPlan Mobile Manipulation</em> — 
-    across three LLMs: GPT-3.5, Mistral-7B, and Qwen1.5-7B. Metrics include <strong>Help Rate (HR)</strong>, 
-    <strong>Correct Help Rate (CHR)</strong>, and <strong>Intent Alignment (IA)</strong>.
-  </p>
-  <p>
-    Compared to baselines such as KnowNo, LAP, and LoFreeCP, SVC achieved the highest CHR (up to 0.77) 
-    and CHQ (Contextual Help Quality) across most instruction types, particularly in user preference and common-sense ambiguity cases. 
-    For example, in the instruction “Pour me some tea” with both green and black tea available, SVC correctly identifies a valency conflict.
-  </p>
-  <p>
-    The method generalizes across models, achieving the most stable performance on Mistral-7B due to its deterministic completions. 
-    SVC effectively balances ambiguity sensitivity with intent alignment, avoiding over-triggering seen in baseline methods.
-  </p>
-</section>
-
-<section id="conclusion">
-  <h2>Conclusion</h2>
-  <p>
-    We introduced <strong>Semantic Valency Conflict (SVC)</strong> — a cognitively motivated, logit-free framework for detecting ambiguity in robot-directed language instructions.
-    SVC analyzes semantic role conflicts between cognitive frames, offering fine-grained and interpretable ambiguity detection suitable for both open- and closed-source models.
-  </p>
-  <p>
-    Future work will focus on extending SVC to multimodal settings and integrating disambiguation strategies for real-time robotic dialogue systems.
+    We define <strong>Semantic Valency Conflict</strong> as a condition where multiple interpretations of a lexeme activate incompatible semantic valency profiles in a given environment.
   </p>
 </section>
 
 <footer>
-  © 2025 Anonymous Authors — Semantic Valency Conflict (SVC).  
+  © 2025 Daria Gitalova, Alexey K. Kovalev, Aleksandr I. Panov — Semantic Valency Conflict (SVC).  
   <br>
   <a href="#">PDF</a> · <a href="#">Project Page</a> · <a href="#">GitHub</a>
 </footer>
@@ -282,45 +201,28 @@
 <script>
 particlesJS("particles-js", {
   "particles": {
-    "number": {
-      "value": 100,
-      "density": { "enable": true, "value_area": 800 }
-    },
+    "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
     "color": { "value": "#ffffff" },
-    "shape": {
-      "type": "circle",
-      "stroke": { "width": 0, "color": "#000000" }
-    },
-    "opacity": { "value": 0.6, "random": false },
-    "size": { "value": 7, "random": true },
-    "line_linked": {
-      "enable": true,
-      "distance": 150,
-      "color": "#ffffff",
-      "opacity": 0.3,
-      "width": 1
-    },
-    "move": {
-      "enable": true,
-      "speed": 3,
-      "direction": "none",
-      "random": false,
-      "out_mode": "out"
-    }
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.6 },
+    "size": { "value": 6, "random": true },
+    "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.3, "width": 1 },
+    "move": { "enable": true, "speed": 3 }
   },
   "interactivity": {
-    "detect_on": "canvas",
     "events": {
       "onhover": { "enable": true, "mode": "repulse" },
       "onclick": { "enable": true, "mode": "push" }
     },
-    "modes": {
-      "repulse": { "distance": 100 },
-      "push": { "particles_nb": 3 }
-    }
+    "modes": { "repulse": { "distance": 100 }, "push": { "particles_nb": 3 } }
   },
   "retina_detect": true
 });
+
+function scrollToNextSection() {
+  const next = document.querySelector('section');
+  if (next) next.scrollIntoView({ behavior: 'smooth' });
+}
 </script>
 
 </body>
