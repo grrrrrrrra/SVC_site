@@ -10,17 +10,20 @@
 
 <style>
   :root {
-    --primary: #66bb6a;
-    --primary-light: #a5d6a7;
-    --primary-dark: #388e3c;
-    --background: #f6fff6;
+    --primary: #8dab8f;
+    --primary-light: #afd5b0;
+    --primary-dark: #537d55;
+    --background: #8fad8f;
     --text: #1b1b1b;
   }
 
   body {
     font-family: "Inter", "Segoe UI", sans-serif;
     margin: 0;
-    background: var(--background);
+    background-image: url('Desktop - 1.png'); /* <- правильно */
+    background-repeat: no-repeat;         /* чтобы не повторялось */
+    background-size: cover;               /* растянуть на весь экран */
+    background-position: center;          /* центрировать */
     color: var(--text);
     line-height: 1.6;
     scroll-behavior: smooth;
@@ -32,10 +35,11 @@
     overflow: hidden;
     color: #fff;
     text-align: center;
-    padding: 8rem 1rem 6rem;
-    background: linear-gradient(to bottom right, rgb(72, 71, 97), rgb(69, 159, 114));
+    /* padding: 6rem 1rem 6rem; */
+    background: linear-gradient(to bottom right, rgb(48, 48, 66), rgb(58, 97, 77));
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   }
+  
 
   #particles-js {
     position: absolute;
@@ -51,28 +55,34 @@
   header div {
     position: relative;
     z-index: 1;
+    justify-content: center;
   }
 
   header h1 {
-    margin: 0;
-    font-size: 3.6rem;
+    margin-top: 5%;
+    font-size: 3rem;
     font-weight: 800;
     line-height: 1.2;
   }
 
   .authors {
     margin-top: 1.2rem;
-    font-size: 1.15rem;
-    opacity: 0.95;
+    font-size: 1.4rem;
+    opacity: 1;
+    justify-content: center;
+    text-align: center;
   }
 
   .affiliations {
-    font-size: 0.95rem;
-    opacity: 0.85;
+    font-size: 1.2rem;
+    opacity: 1;
+    justify-content: center;
+    text-align: center;
+    
   }
 
   .buttons {
-    margin-top: 2.5rem;
+    margin: 5%;
     display: flex;
     justify-content: center;
     gap: 1.2rem;
@@ -96,21 +106,22 @@
     border-color: var(--primary);
     transform: scale(1.08);
     box-shadow: 0 0 12px rgba(102,187,106,0.3);
+    background: none;
   }
 
-  .scroll-down {
-    margin-top: 3rem;
-    font-size: 2rem;
-    color: #fff;
+  /* .scroll-down {
+    margin-top: 0.5rem;
+    font-size: 5rem;
+    color: #a2bdbc;
     cursor: pointer;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.2s ease, opacity 0.3s ease;
     display: inline-block;
   }
 
   .scroll-down:hover {
     transform: translateY(5px);
-    opacity: 0.8;
-  }
+    opacity: 0.9;
+  } */
 
   /* === SECTIONS === */
   section {
@@ -138,9 +149,9 @@
   footer {
     text-align: center;
     padding: 2rem;
-    background: var(--primary-light);
-    color: #004d25;
-    font-size: 0.95rem;
+    background:#666;
+    color:#8fad8f;
+    font-size: 1rem;
   }
 
   a {
@@ -151,6 +162,235 @@
   a:hover {
     text-decoration: underline;
   }
+
+  #abstract {
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+#abstract h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center !important; /* форсируем центрирование */
+  display: block;
+}
+
+.abstract-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  text-align: left;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.abstract-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+}
+
+.abstract-image {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.abstract-left .caption {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+}
+
+
+.abstract-right {
+  flex: 1.2;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+@media (max-width: 850px) {
+  .abstract-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .abstract-right {
+    text-align: justify;
+  }
+}
+
+#method {
+    max-width: 900px;
+    margin: 80px auto;
+    text-align: justify;
+    line-height: 1.7;
+  }
+
+#method h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center !important; /* форсируем центрирование */
+  display: block;
+}
+
+  .method-content ul {
+    margin: 15px 0 25px 40px;
+  }
+
+  .formula {
+    font-family: 'Courier New', monospace;
+    font-size: 1.1em;
+    background: #f7f7f9;
+    border-left: 4px solid #66bb6a;
+    padding: 10px 15px;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .method-image {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .method-image img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .method-image .caption {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+  }
+
+#experiments {
+  max-width: 900px;
+  margin: 80px auto;
+  line-height: 1.7;
+}
+
+#experiments h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center !important; /* форсируем центрирование */
+  display: block;
+}
+
+/* Большая таблица */
+.large-table-container {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.large-table-container .experiment-image {
+  width: 90%;
+  max-width: 900px;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+}
+
+.large-table-container .table-caption {
+  font-size: 0.9em;
+  color: #666;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* Метрики и маленькая таблица в ряд */
+.metrics-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.metrics-column {
+  flex: 1 1 45%;
+}
+
+.metrics-image-column {
+  flex: 1 1 50%;
+  text-align: center;
+}
+
+.metrics-image-column .experiment-image {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+}
+
+.metrics-image-column .table-caption {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Два текстовых блока снизу */
+.datasets-models-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.datasets-column,
+.models-column {
+  flex: 1 1 48%;
+}
+
+.datasets-column h3,
+.models-column h3 {
+  margin-bottom: 0.5rem;
+}
+
+.datasets-column p,
+.models-column p {
+  margin-bottom: 1rem;
+}
+
+.model-image-container {
+  text-align: right;
+}
+
+.model-image {
+  max-width: 50%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+
 </style>
 </head>
 
@@ -158,43 +398,165 @@
 
 <header>
   <div id="particles-js"></div>
-  <h1>Resolving Ambiguity in Embodied Instructions<br>via Semantic Valency Conflict</h1>
+  <h1>Resolving Ambiguity in Embodied Instructions<br>via <u>Semantic Valency Conflict</u></h1>
   <p class="authors">
     Daria Gitalova<sup>1</sup>, Alexey K. Kovalev<sup>1,2</sup>, Aleksandr I. Panov<sup>1,2</sup>
   </p>
+  </div>
   <p class="affiliations">
     <sup>1</sup>MIPT, Moscow, Russia &nbsp;&nbsp; <sup>2</sup>AIRI, Moscow, Russia
   </p>
+  </div>
 
   <div class="buttons">
     <a href="paper.pdf" target="_blank" class="btn">Paper PDF</a>
-    <a href="https://arxiv.org" target="_blank" class="btn">arXiv</a>
+    <a href="https://arxiv.org" target="_blank" class="btn">arXiv (soon)</a>
   </div>
 
-  <div class="scroll-down" onclick="scrollToNextSection()">⬇</div>
+  <!-- <div class="scroll-down" onclick="scrollToNextSection()">⬇</div> -->
 </header>
+
+
 
 <section id="abstract">
   <h2>Abstract</h2>
-  <p>
-    Natural language instructions in human–robot interaction often contain subtle ambiguities that hinder reliable interpretation. 
-    These arise when a single instruction can be understood in multiple ways, assigning conflicting semantic roles to objects, tools, or participants. 
-    To address this, we propose <strong>Semantic Valency Conflict (SVC)</strong> — a cognitively inspired, logit-free method for detecting ambiguity in robot-directed instructions. 
-    SVC identifies divergences in role assignments across alternative interpretations of a predicate using large language models to infer context-sensitive semantic frames.
-  </p>
+  <div class="abstract-content">
+    <div class="abstract-left">
+      <img src="Frame 3.png" alt="Loading visualization" class="abstract-image">
+      <p class="caption">Figure 1: Visualization of the instruction ambiguity.</p>
+    </div>
+
+    <div class="abstract-right">
+      <p>
+        Natural language instructions in human–robot interaction often contain subtle ambiguities that hinder reliable interpretation. 
+        These arise when a single instruction can be understood in multiple ways, assigning conflicting semantic roles to objects, tools, or participants. 
+      </p>
+      <p>  
+        To address this, we propose <strong>Semantic Valency Conflict (SVC)</strong> — a cognitively inspired, logit-free method for detecting ambiguity in robot-directed instructions. 
+        SVC identifies divergences in role assignments across alternative interpretations of a predicate using large language models to infer context-sensitive semantic frames.
+      </p>
+    </div>
+  </div>
 </section>
+
 
 <section id="method">
   <h2>Method</h2>
-  <p>
-    We define <strong>Semantic Valency Conflict</strong> as a condition where multiple interpretations of a lexeme activate incompatible semantic valency profiles in a given environment.
-  </p>
+
+  <div class="method-content">
+
+    <div class="method-image">
+      <img src="Frame 2.png" alt="Overview of the SVC method architecture">
+      <p class="caption">Figure 2: Overview of the Semantic Valency Conflict (SVC) architecture.</p>
+    </div>
+
+    <p>
+      We define <strong>Semantic Valency Conflict (SVC)</strong> as a condition where multiple interpretations of a lexeme activate incompatible semantic valency profiles in a given environment.
+      The SVC method aims to detect ambiguity arising from <em>lexical polysemy</em> and <em>underspecified argument structures</em>.
+    </p>
+
+    <p>
+      Ambiguity arises when a single lexeme activates multiple incompatible cognitive frames <code>F</code>. 
+      Each stage of the proposed architecture mirrors the cognitive process of frame activation and conflict resolution:
+    </p>
+
+    <ul>
+      <li>Extraction of actants and alignment with environmental constraints <code>E</code>.</li>
+      <li>Dynamic frame induction using large language models (LLMs).</li>
+      <li>Evaluation of activated cognitive frames <code>{F<sub>k</sub>}</code> and their valency profiles <code>{V<sub>k</sub>}</code>.</li>
+    </ul>
+
+    <p>
+      A predicate is flagged as ambiguous when two interpretations <code>k ≠ m</code> produce semantically incompatible valency profiles:
+    </p>
+
+    <div class="formula">
+      V<sub>k</sub> ≁<sub>E</sub> V<sub>m</sub> 
+    </div>
+
+    <p>
+      Alternatively, if only one frame <code>F<sub>k</sub></code> is active but multiple variants <code>{v<sub>i</sub>}</code> exist within it:
+    </p>
+
+    <div class="formula">
+      |{v<sub>i</sub>}| &gt; 1  
+    </div>
+
+    <p>
+      This represents variation within a single event schema (e.g. “olive oil” vs “sunflower oil”) rather than true semantic conflict.
+      Hence, SVC distinguishes genuine ambiguity from contextual variability, forming a robust basis for disambiguation.
+    </p>
+
+  
+  </div>
 </section>
 
+<section id="experiments">
+  <h2>Experimental Evaluation</h2>
+
+  <div class="experiments-content">
+
+    <!-- Большая таблица как изображение -->
+    <div class="large-table-container">
+      <img src="table_1.png" alt="Evaluation Results 1" class="experiment-image">
+      <p class="table-caption">
+        Table 1: Performance of our method (SVC) in comparison to baselines on the AmbiK dataset. Comparison across models
+        (GPT, Mistral, Qwen) and methods. Metrics include Correct Help Rate (CHR), Help Rate (HR), and Intent Alignment (IA),
+        each broken down by instruction type: Unambiguous (UN), Preference (PR), Common Sense (CS), and Safety (S)
+      </p>
+    </div>
+
+    <!-- Блок с метриками слева и маленькой таблицей справа -->
+    <div class="metrics-row">
+      <div class="metrics-column">
+        <h3>Metrics</h3>
+        <p>
+          <strong>HR (Help Rate):</strong> frequency of the module requesting clarification.<br>
+          <strong>CHR (Correct Help Rate):</strong> appropriateness of the help request based on actual ambiguity.<br>
+          <strong>IA (Intent Alignment):</strong> similarity between predicted and ground-truth intents.<br>
+          <strong>CHQ (Contextual Help Quality):</strong> harmonic mean of IA and CHR:<br>
+          <div class="formula">CHQ = 2 · IA · CHR / (IA + CHR + &epsilon;)</div>
+        </p>
+      </div>
+      <div class="metrics-image-column">
+        <img src="table_2.png" alt="Evaluation Results 2" class="experiment-image">
+        <p class="table-caption">
+          Table 2: Contextual Help Quality (CHQ↑) of SVC and baseline systems on the AmbiK and IntroPlan datasets. CHQ
+          reflects the usefulness of contextual suggestions in supporting user goals. Evaluation on Mistral. Best values are highlighted in bold.
+        </p>
+      </div>
+    </div>
+
+    <!-- Блок с двумя текстовыми столбцами -->
+    <div class="datasets-models-row">
+      <div class="datasets-column">
+        <h3>Datasets</h3>
+        <p>
+          <strong>IntroPlan Mobile Manipulation:</strong> 600 short single-step tasks, scene descriptions, object lists. Assesses model sensitivity to varied phrasing but lacks detailed ambiguity definitions.
+        </p>
+        <p>
+          <strong>AmbiK:</strong> 2,000 annotated instructions covering semantic ambiguity types: user preferences, commonsense knowledge, safety considerations. Each task includes clarifying questions, answers, and execution plans.
+        </p>
+      </div>
+      <div class="models-column">
+        <h3>Models </h3>
+<ul>
+  <li><a href="https://platform.openai.com/docs/models/gpt-3-5" target="_blank">GPT-3.5-Turbo</a></li>
+  <li><a href="https://mistral.ai/models/mistral-7b-instruct-v0-2" target="_blank">Mistral-7B-Instruct-v0.2</a></li>
+  <li><a href="https://qwen.ai" target="_blank">Qwen1.5-7B-Chat</a></li>
+</ul>
+<div class="model-image-container">
+  <img src="robo.png" alt="Robot" class="model-image">
+</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 <footer>
-  © 2025 Daria Gitalova, Alexey K. Kovalev, Aleksandr I. Panov — Semantic Valency Conflict (SVC).  
-  <br>
-  <a href="#">PDF</a> · <a href="#">Project Page</a> · <a href="#">GitHub</a>
+  © 2025 <u>Daria Gitalova</u>, <u>Alexey K. Kovalev</u>, <u>Aleksandr I. Panov</u> — Semantic Valency Conflict (SVC).  
 </footer>
 
 <!-- Настройки Particles.js -->
@@ -202,11 +564,11 @@
 particlesJS("particles-js", {
   "particles": {
     "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
-    "color": { "value": "#ffffff" },
+    "color": { "value": "#ccffcc" },
     "shape": { "type": "circle" },
-    "opacity": { "value": 0.6 },
-    "size": { "value": 6, "random": true },
-    "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.3, "width": 1 },
+    "opacity": { "value": 0.2 },
+    "size": { "value": 10, "random": true },
+    "line_linked": { "enable": true, "distance": 200, "color": "#ccffcc", "opacity": 0.2, "width": 2 },
     "move": { "enable": true, "speed": 3 }
   },
   "interactivity": {
